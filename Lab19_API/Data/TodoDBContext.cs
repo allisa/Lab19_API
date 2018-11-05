@@ -14,13 +14,7 @@ namespace Lab19_API.Data
             : base(options)
         {
         }
-
         public DbSet<Todo> TodoItems { get; set; }
         public DbSet<TodoList> TodoLists { get; set; }
-
-        public static implicit operator TodoDBContext(TodoController v)
-        {
-            throw new NotImplementedException();
-        }
     }
 }

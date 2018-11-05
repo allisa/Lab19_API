@@ -15,19 +15,19 @@ namespace Lab19_API.Controllers
     {
         private readonly TodoDBContext _context;
 
-        public TodoController(TodoController context)
+        public TodoController(TodoDBContext context)
         {
             _context = context;
         }
 
         [HttpGet]
-        public IEnumerable<Todo> GetTodos()
+        public async Task<List<Todo>> GetTodos()
         {
-            return _context.TodoItems;
+            return await _context.TodoItems.ToListAsync();
         }
 
         // GET: api/<controller>
-        [HttpGet("{id]")]
+        [HttpGet("{id}")]
         public async Task<IActionResult> GetTodo([FromRoute] int id)
         {
             if (!ModelState.IsValid)

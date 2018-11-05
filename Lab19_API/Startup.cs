@@ -28,7 +28,7 @@ namespace Lab19_API
         {
             services.AddDbContext<TodoDBContext>(options =>
             {
-                options.UseSqlServer(Configuration["ConnectionStrings:ProductionDB"]);
+                options.UseSqlServer(Configuration["ConnectionStrings:DefaultConnection"]);
             });
             services.AddMvc().AddXmlDataContractSerializerFormatters();
         }
